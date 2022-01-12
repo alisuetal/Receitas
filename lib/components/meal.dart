@@ -1,7 +1,7 @@
 // ignore_for_file: use_key_in_widget_constructors
 import 'package:flutter/Material.dart';
-import 'package:navigation/components/tag.dart';
-import 'package:navigation/models/meal.dart';
+import 'package:receitas/components/tag.dart';
+import 'package:receitas/models/meal.dart';
 
 class MealWidget extends StatelessWidget {
   final Meal meal;

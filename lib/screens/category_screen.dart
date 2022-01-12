@@ -1,9 +1,9 @@
 // ignore_for_file: use_key_in_widget_constructors
 import 'package:flutter/material.dart';
-import 'package:navigation/components/app_bar.dart';
-import 'package:navigation/components/meal.dart';
-import 'package:navigation/data/dummy_data.dart';
-import 'package:navigation/models/category.dart';
+import 'package:receitas/components/app_bar.dart';
+import 'package:receitas/components/meal.dart';
+import 'package:receitas/data/dummy_data.dart';
+import 'package:receitas/models/category.dart';
 
 class CategoryScreen extends StatelessWidget{
   @override

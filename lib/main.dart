@@ -2,9 +2,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:navigation/screens/categories_screen.dart';
-import 'package:navigation/screens/category_screen.dart';
-import 'package:navigation/utils/app_routes.dart';
+import 'package:receitas/screens/categories_screen.dart';
+import 'package:receitas/screens/category_screen.dart';
+import 'package:receitas/utils/app_routes.dart';
 
 void main() {
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(

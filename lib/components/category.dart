@@ -1,9 +1,8 @@
 // ignore_for_file: use_key_in_widget_constructors
 
 import 'package:flutter/material.dart';
-import 'package:navigation/models/category.dart';
-import 'package:navigation/screens/category_screen.dart';
-import 'package:navigation/utils/app_routes.dart';
+import 'package:receitas/models/category.dart';
+import 'package:receitas/utils/app_routes.dart';
 
 class CategoryWidget extends StatelessWidget{
   final Category category;
