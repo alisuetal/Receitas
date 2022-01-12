@@ -10,10 +10,6 @@ class Tag extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(
-        left: 8,
-        top: 8
-      ),
       padding: const EdgeInsets.symmetric(
         horizontal: 10,
         vertical: 6

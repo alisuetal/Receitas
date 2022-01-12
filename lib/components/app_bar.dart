@@ -10,15 +10,13 @@ class AppBarWidget extends StatelessWidget {
   const AppBarWidget({required this.title, required this.backButton});
 
   void _selectCategory(BuildContext context) {
-    Navigator.of(context).pushNamed(
-      AppRoutes.HOME,
-    );
+    Navigator.pop(context);
   }
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 144.0,
+      height: title != '' ? 144.0 : 80,
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 16),
         child: Column(
@@ -42,16 +40,21 @@ class AppBarWidget extends StatelessWidget {
                   ),
                 ],
               ),
-            Row(mainAxisAlignment: MainAxisAlignment.start, children: [
-              Text(
-                title,
-                style: const TextStyle(
-                  color: Colors.black,
-                  fontSize: 32,
-                  fontWeight: FontWeight.w700,
-                ),
-              )
-            ]),
+            if(title != '')
+              Row(mainAxisAlignment: MainAxisAlignment.start, children: [
+                Flexible(
+                  child: Text(
+                    title,
+                    style: const TextStyle(
+                      color: Colors.black,
+                      fontSize: 32,
+                      fontWeight: FontWeight.w700,
+                    ),
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                )
+              ]),
           ],
         ),
       ),
