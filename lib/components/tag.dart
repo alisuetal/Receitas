@@ -17,12 +17,12 @@ class Tag extends StatelessWidget{
       child: Text(
         title,
         style: const TextStyle(
-          color: Colors.white,
+          color: Colors.black,
         ),
       ),
       decoration: BoxDecoration(
         borderRadius: const BorderRadius.all(Radius.circular(20)),
-        color: Colors.green[800],
+        color: Colors.green[200],
       ),
     );
   }

@@ -29,7 +29,7 @@ class CategoryWidget extends StatelessWidget{
         padding: const EdgeInsets.all(12),
         decoration: BoxDecoration(
           borderRadius: const BorderRadius.all(Radius.circular(12)),
-          color: category.color.withOpacity(0.5)
+          color: category.color.withOpacity(0.4)
         ),
       ),
     );

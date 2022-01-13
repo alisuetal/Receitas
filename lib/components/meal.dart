@@ -158,7 +158,7 @@ class MealWidget extends StatelessWidget {
         ),
         decoration: BoxDecoration(
           borderRadius: const BorderRadius.all(Radius.circular(12)),
-          color: Colors.amber[200]
+          color: Colors.amber[100]
         ),
       ),
     );
