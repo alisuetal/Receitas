@@ -1,6 +1,7 @@
 // ignore_for_file: use_key_in_widget_constructors
 import 'package:flutter/Material.dart';
 import 'package:receitas/components/tag.dart';
+import 'package:receitas/models/favorites.dart';
 import 'package:receitas/models/meal.dart';
 import 'package:receitas/utils/app_routes.dart';
 
@@ -97,58 +98,88 @@ class MealWidget extends StatelessWidget {
                   ),
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      const Icon(
-                        Icons.timer,
-                        color: Colors.black38,
-                        size: 20,
+                      Row(
+                        children: [
+                          const Icon(
+                            Icons.timer,
+                            color: Colors.black38,
+                            size: 20,
+                          ),
+                          const SizedBox(
+                            width: 8,
+                          ),
+                          Text(
+                            meal.duration.toString() + ' min',
+                            style: const TextStyle(
+                              color: Colors.black54,
+                              fontSize: 16
+                            ),
+                          ),
+                        ],
                       ),
-                      const SizedBox(
-                        width: 8,
+                      Row(
+                        children: [
+                          const Icon(
+                            Icons.widgets_outlined,
+                            color: Colors.black38,
+                            size: 20,
+                          ),
+                          const SizedBox(
+                            width: 8,
+                          ),
+                          Text(
+                            meal.complexityText,
+                            style: const TextStyle(
+                              color: Colors.black54,
+                              fontSize: 16
+                            ),
+                          ),
+                        ],
                       ),
-                      Text(
-                        meal.duration.toString() + ' min',
-                        style: const TextStyle(
-                          color: Colors.black54,
-                          fontSize: 16
+                      Row(
+                        children: [
+                          const Icon(
+                            Icons.attach_money_rounded,
+                            color: Colors.black38,
+                            size: 20,
+                          ),
+                          const SizedBox(
+                            width: 2,
+                          ),
+                          Text(
+                            meal.costText,
+                            style: const TextStyle(
+                              color: Colors.black54,
+                              fontSize: 16
+                            ),
+                          ),
+                        ],
+                      ),
+                      if(FavoriteMeals.meals.contains(meal))
+                        Row(
+                          children: const [
+                            Icon(
+                              Icons.star,
+                              color: Colors.black38,
+                              size: 20,
+                            ),
+                            SizedBox(
+                              width: 6,
+                            ),
+                            Text(
+                              "Favorito",
+                              style: TextStyle(
+                                color: Colors.black54,
+                                fontSize: 16
+                              ),
+                            ),
+                            SizedBox(
+                              width: 4,
+                            ),
+                          ],
                         ),
-                      ),
-                      const SizedBox(
-                        width: 16,
-                      ),
-                      const Icon(
-                        Icons.widgets_outlined,
-                        color: Colors.black38,
-                        size: 20,
-                      ),
-                      const SizedBox(
-                        width: 8,
-                      ),
-                      Text(
-                        meal.complexityText,
-                        style: const TextStyle(
-                          color: Colors.black54,
-                          fontSize: 16
-                        ),
-                      ),
-                      const SizedBox(
-                        width: 16,
-                      ),
-                      const Icon(
-                        Icons.attach_money_rounded,
-                        color: Colors.black38,
-                        size: 20,
-                      ),
-                      const SizedBox(
-                        width: 2,
-                      ),
-                      Text(
-                        meal.costText,
-                        style: const TextStyle(
-                          color: Colors.black54,
-                          fontSize: 16
-                        ),
-                      )
                     ],
                   ),
                 ],

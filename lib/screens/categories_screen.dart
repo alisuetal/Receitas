@@ -8,6 +8,7 @@ import 'package:receitas/data/dummy_data.dart';
 class CategoriesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    print("hi");
     return Scaffold(
       body: SingleChildScrollView(
         child: Padding(

@@ -4,6 +4,7 @@ import 'package:receitas/components/app_bar.dart';
 import 'package:receitas/components/description_card.dart';
 import 'package:receitas/components/icon_description.dart';
 import 'package:receitas/components/tag.dart';
+import 'package:receitas/models/favorites.dart';
 import 'package:receitas/models/meal.dart';
 
 class MealScreen extends StatelessWidget{
@@ -120,6 +121,20 @@ class MealScreen extends StatelessWidget{
           ),
         ),
       ),
+      floatingActionButton: FloatingActionButton(
+        child: FavoriteMeals.checkMeal(meal) ?
+        const Icon(Icons.star, color: Colors.black54) :
+        const Icon(Icons.star_outline, color: Colors.black54),
+        onPressed: () => FavoriteMeals.checkMeal(meal) ?
+        FavoriteMeals.removeMeal(meal) :
+        FavoriteMeals.addMeal(meal),
+        elevation: 0,
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(Radius.circular(12)),
+        ),
+        backgroundColor: Colors.amber[200],
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
     );
   }
 }
