@@ -33,7 +33,7 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
           child: Column(
             children: [
               const AppBarWidget(title: 'Favoritos', backButton: false),
-              FavoriteMeals.getMeals().length > 0 ?
+              FavoriteMeals.getMeals().isNotEmpty ?
               ListView.builder(
                 shrinkWrap: true,
                 physics: const NeverScrollableScrollPhysics(),

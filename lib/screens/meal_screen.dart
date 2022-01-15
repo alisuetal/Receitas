@@ -39,7 +39,7 @@ class _MealScreenState extends State<MealScreen> {
           padding: const EdgeInsets.all(20.0),
           child: Column(
             children: [
-              AppBarWidget(title: '', backButton: true, argument: _isFavorite),
+              const AppBarWidget(title: '', backButton: true),
               ClipRRect(
                 child: Image.network(
                   meal.imageUrl,

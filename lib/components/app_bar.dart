@@ -4,17 +4,11 @@ import 'package:flutter/material.dart';
 class AppBarWidget extends StatelessWidget {
   final String title;
   final bool backButton;
-  final bool? argument;
 
-  const AppBarWidget({required this.title, required this.backButton, this.argument});
+  const AppBarWidget({required this.title, required this.backButton});
 
   void _selectCategory(BuildContext context) {
-    if(argument != null){
-      Navigator.of(context).pop(argument);
-    }
-    else{
-      Navigator.pop(context);
-    }
+    Navigator.pop(context);
   }
 
   @override

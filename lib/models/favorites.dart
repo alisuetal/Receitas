@@ -1,4 +1,3 @@
-import 'package:receitas/data/dummy_data.dart';
 import 'package:receitas/models/meal.dart';
 
 class FavoriteMeals{

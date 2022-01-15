@@ -1,5 +1,4 @@
 // ignore_for_file: use_key_in_widget_constructors
-import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:receitas/components/app_bar.dart';
 import 'package:receitas/components/meal.dart';
