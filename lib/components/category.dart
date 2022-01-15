@@ -22,9 +22,25 @@ class CategoryWidget extends StatelessWidget{
       onTap: () => _selectCategory(context),
       borderRadius: const BorderRadius.all(Radius.circular(12)),
       child: Container(
-        child: Text(
-          category.title,
-          style: Theme.of(context).textTheme.subtitle1,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              category.title,
+              style: Theme.of(context).textTheme.subtitle1,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: const [
+                Icon(
+                  Icons.arrow_forward_rounded,
+                  size: 32,
+                  color: Colors.black54,
+                )
+              ],
+            )
+          ],
         ),
         padding: const EdgeInsets.all(12),
         decoration: BoxDecoration(

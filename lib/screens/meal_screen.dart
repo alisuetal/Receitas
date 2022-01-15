@@ -7,10 +7,31 @@ import 'package:receitas/components/tag.dart';
 import 'package:receitas/models/favorites.dart';
 import 'package:receitas/models/meal.dart';
 
-class MealScreen extends StatelessWidget{
+class MealScreen extends StatefulWidget{
+  @override
+  State<MealScreen> createState() => _MealScreenState();
+}
+
+class _MealScreenState extends State<MealScreen> {
+  bool _isFavorite = false;
+
+  _setFavorite(Meal meal){
+    if(_isFavorite){
+      setState(() {
+        FavoriteMeals.removeMeal(meal);
+      });
+    }
+    else{
+      setState(() {
+        FavoriteMeals.addMeal(meal);
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final meal = ModalRoute.of(context)?.settings.arguments as Meal;
+    _isFavorite = FavoriteMeals.checkMeal(meal);
 
     return Scaffold(
       body: SingleChildScrollView(
@@ -18,7 +39,7 @@ class MealScreen extends StatelessWidget{
           padding: const EdgeInsets.all(20.0),
           child: Column(
             children: [
-              const AppBarWidget(title: '', backButton: true),
+              AppBarWidget(title: '', backButton: true, argument: _isFavorite),
               ClipRRect(
                 child: Image.network(
                   meal.imageUrl,
@@ -122,12 +143,10 @@ class MealScreen extends StatelessWidget{
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        child: FavoriteMeals.checkMeal(meal) ?
+        child: _isFavorite ?
         const Icon(Icons.star, color: Colors.black54) :
         const Icon(Icons.star_outline, color: Colors.black54),
-        onPressed: () => FavoriteMeals.checkMeal(meal) ?
-        FavoriteMeals.removeMeal(meal) :
-        FavoriteMeals.addMeal(meal),
+        onPressed: () => _setFavorite(meal),
         elevation: 0,
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(12)),
