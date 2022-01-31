@@ -37,23 +37,54 @@ class _CategoryScreenState extends State<CategoryScreen> {
           child: Column(
             children: [
               AppBarWidget(title: category.title, backButton: true),
-              ListView.builder(
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                itemCount: categoryMeals.length,
-                itemBuilder: (context, index) {
-                  return Padding(
-                    padding: const EdgeInsets.only(bottom: 24),
-                    child: InkWell(
-                        borderRadius:
-                            const BorderRadius.all(Radius.circular(12)),
-                        onTap: () {
-                          _selectMeal(context, categoryMeals[index]);
-                        },
-                        child: MealWidget(categoryMeals[index])),
-                  );
-                },
-              )
+              categoryMeals.isEmpty == false
+                  ? ListView.builder(
+                      shrinkWrap: true,
+                      physics: const NeverScrollableScrollPhysics(),
+                      itemCount: categoryMeals.length,
+                      itemBuilder: (context, index) {
+                        return Padding(
+                          padding: const EdgeInsets.only(bottom: 24),
+                          child: InkWell(
+                              borderRadius:
+                                  const BorderRadius.all(Radius.circular(12)),
+                              onTap: () {
+                                _selectMeal(context, categoryMeals[index]);
+                              },
+                              child: MealWidget(categoryMeals[index])),
+                        );
+                      },
+                    )
+                  : SizedBox(
+                      height: 250,
+                      child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: const [
+                            Icon(Icons.no_food_outlined,
+                                size: 56, color: Colors.black38),
+                            SizedBox(
+                              height: 16,
+                            ),
+                            Text(
+                              "Sem comidas disponíveis nessa categoria. :(",
+                              style: TextStyle(
+                                  fontSize: 22,
+                                  fontWeight: FontWeight.w700,
+                                  color: Colors.black38),
+                              textAlign: TextAlign.center,
+                            ),
+                            SizedBox(
+                              height: 8,
+                            ),
+                            Text(
+                              "Tente desabilitar alguns dos filtros.",
+                              style: TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w500,
+                                  color: Colors.black38),
+                            ),
+                          ]),
+                    )
             ],
           ),
         ),
