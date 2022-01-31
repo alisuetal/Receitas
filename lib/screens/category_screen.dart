@@ -2,32 +2,31 @@
 import 'package:flutter/material.dart';
 import 'package:receitas/components/app_bar.dart';
 import 'package:receitas/components/meal.dart';
-import 'package:receitas/data/dummy_data.dart';
 import 'package:receitas/models/category.dart';
 import 'package:receitas/models/meal.dart';
 import 'package:receitas/utils/app_routes.dart';
 
-class CategoryScreen extends StatefulWidget{
+class CategoryScreen extends StatefulWidget {
+  final List<Meal> meals;
+  const CategoryScreen(this.meals);
   @override
   State<CategoryScreen> createState() => _CategoryScreenState();
 }
 
 class _CategoryScreenState extends State<CategoryScreen> {
-  void _selectMeal(BuildContext context, Meal meal){
-    Navigator.of(context).pushNamed(
-      AppRoutes.MEAL_SCREEN,
-      arguments: meal
-    ).then((result){
-        setState(() {});
-      }
-    );
+  void _selectMeal(BuildContext context, Meal meal) {
+    Navigator.of(context)
+        .pushNamed(AppRoutes.MEAL_SCREEN, arguments: meal)
+        .then((result) {
+      setState(() {});
+    });
   }
 
   @override
   Widget build(BuildContext context) {
     final category = ModalRoute.of(context)?.settings.arguments as Category;
 
-    final categoryMeals = dummyMeals.where((element){
+    final categoryMeals = widget.meals.where((element) {
       return element.categories.contains(category.id);
     }).toList();
 
@@ -42,16 +41,16 @@ class _CategoryScreenState extends State<CategoryScreen> {
                 shrinkWrap: true,
                 physics: const NeverScrollableScrollPhysics(),
                 itemCount: categoryMeals.length,
-                itemBuilder: (context, index){
+                itemBuilder: (context, index) {
                   return Padding(
-                    padding: const EdgeInsets.only(
-                      bottom: 24
-                    ),
+                    padding: const EdgeInsets.only(bottom: 24),
                     child: InkWell(
-                      borderRadius: const BorderRadius.all(Radius.circular(12)),
-                      onTap: () {_selectMeal(context, categoryMeals[index]);},
-                      child: MealWidget(categoryMeals[index])
-                    ),
+                        borderRadius:
+                            const BorderRadius.all(Radius.circular(12)),
+                        onTap: () {
+                          _selectMeal(context, categoryMeals[index]);
+                        },
+                        child: MealWidget(categoryMeals[index])),
                   );
                 },
               )
