@@ -8,7 +8,7 @@
 O projeto ainda está em desenvolvimento e as próximas atualizações serão voltadas nas seguintes tarefas:
 
 - [x] Exibir receita selecionada;
-- [ ] Melhorar visualmente página de categorias;
+- [x] Melhorar visualmente página de categorias;
 
 ## 💻 Pré-requisitos
 

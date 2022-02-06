@@ -14,57 +14,40 @@ class MealWidget extends StatelessWidget {
     return Container(
       child: Column(
         children: [
-          Stack(
-            children: [
-              ClipRRect(
-                child: Image.network(
-                  meal.imageUrl,
-                  width: double.infinity,
-                  fit: BoxFit.fitWidth,
-                  height: 156,
-                  alignment: Alignment.center,
-                ),
-                borderRadius: const BorderRadius.only(
+          Stack(children: [
+            ClipRRect(
+              child: Image.network(
+                meal.imageUrl,
+                width: double.infinity,
+                fit: BoxFit.fitWidth,
+                height: 156,
+                alignment: Alignment.center,
+              ),
+              borderRadius: const BorderRadius.only(
                   topLeft: Radius.circular(12), topRight: Radius.circular(12)),
-              ),
-              Wrap(
-                children: [
-                  if(meal.isGlutenFree)
+            ),
+            Wrap(
+              children: [
+                if (meal.isGlutenFree)
                   Container(
-                    margin: const EdgeInsets.only(
-                      left: 8,
-                      top: 8
-                    ),
-                    child: const Tag("Livre de Glúten")
+                      margin: const EdgeInsets.only(left: 8, top: 8),
+                      child: const Tag("Livre de Glúten")),
+                if (meal.isLactoseFree)
+                  Container(
+                      margin: const EdgeInsets.only(left: 8, top: 8),
+                      child: const Tag("Livre de Lactose")),
+                if (meal.isVegan)
+                  Container(
+                      margin: const EdgeInsets.only(left: 8, top: 8),
+                      child: const Tag("Vegano")),
+                if (meal.isVegetarian)
+                  Container(
+                    margin: const EdgeInsets.only(left: 8, top: 8),
+                    child: const Tag("Vegetariano"),
                   ),
-                  if(meal.isLactoseFree)
-                    Container(
-                      margin: const EdgeInsets.only(
-                        left: 8,
-                        top: 8
-                      ),
-                      child: const Tag("Livre de Lactose")
-                    ),
-                  if(meal.isVegan)
-                    Container(
-                      margin: const EdgeInsets.only(
-                        left: 8,
-                        top: 8
-                      ),
-                      child: const Tag("Vegano")
-                    ),
-                  if(meal.isVegetarian)
-                    Container(
-                      margin: const EdgeInsets.only(
-                        left: 8,
-                        top: 8
-                      ),
-                      child: const Tag("Vegetariano"),
-                    ),
-                ],
-              ),
-            ]
-          ),
+              ],
+            ),
+          ]),
           Padding(
             padding: const EdgeInsets.all(20),
             child: Column(
@@ -102,9 +85,7 @@ class MealWidget extends StatelessWidget {
                         Text(
                           meal.duration.toString() + ' min',
                           style: const TextStyle(
-                            color: Colors.black54,
-                            fontSize: 16
-                          ),
+                              color: Colors.black54, fontSize: 16),
                         ),
                       ],
                     ),
@@ -121,9 +102,7 @@ class MealWidget extends StatelessWidget {
                         Text(
                           meal.complexityText,
                           style: const TextStyle(
-                            color: Colors.black54,
-                            fontSize: 16
-                          ),
+                              color: Colors.black54, fontSize: 16),
                         ),
                       ],
                     ),
@@ -140,13 +119,11 @@ class MealWidget extends StatelessWidget {
                         Text(
                           meal.costText,
                           style: const TextStyle(
-                            color: Colors.black54,
-                            fontSize: 16
-                          ),
+                              color: Colors.black54, fontSize: 16),
                         ),
                       ],
                     ),
-                    if(FavoriteMeals.meals.contains(meal))
+                    if (FavoriteMeals.meals.contains(meal))
                       Row(
                         children: const [
                           Icon(
@@ -159,10 +136,8 @@ class MealWidget extends StatelessWidget {
                           ),
                           Text(
                             "Favorito",
-                            style: TextStyle(
-                              color: Colors.black54,
-                              fontSize: 16
-                            ),
+                            style:
+                                TextStyle(color: Colors.black54, fontSize: 16),
                           ),
                           SizedBox(
                             width: 4,
@@ -177,9 +152,8 @@ class MealWidget extends StatelessWidget {
         ],
       ),
       decoration: BoxDecoration(
-        borderRadius: const BorderRadius.all(Radius.circular(12)),
-        color: Colors.amber[100]
-      ),
+          borderRadius: const BorderRadius.all(Radius.circular(12)),
+          color: Colors.amber[100]),
     );
   }
 }
